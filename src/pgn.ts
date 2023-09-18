@@ -656,6 +656,8 @@ export const makeVariant = (rules: Rules): string | undefined => {
       return 'Atomic';
     case 'antichess':
       return 'Antichess';
+    case 'pawnvspawn':
+      return 'PawnVsPawn';
     case '3check':
       return 'Three-check';
     case 'kingofthehill':

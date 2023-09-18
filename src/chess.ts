@@ -29,6 +29,7 @@ import {
   ray,
 } from './attacks.js';
 import { kingCastlesTo, rookCastlesTo, opposite, defined, squareRank } from './util.js';
+import { INITIAL_FEN } from './fen.js';
 
 export enum IllegalSetup {
   Empty = 'ERR_EMPTY',
@@ -186,6 +187,10 @@ export abstract class Position {
     this.remainingChecks = undefined;
     this.halfmoves = setup.halfmoves;
     this.fullmoves = setup.fullmoves;
+  }
+
+  static startingFen(): string {
+    return INITIAL_FEN;
   }
 
   // When subclassing overwrite at least:

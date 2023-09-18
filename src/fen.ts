@@ -11,6 +11,9 @@ export const INITIAL_FEN = INITIAL_EPD + ' 0 1';
 export const EMPTY_BOARD_FEN = '8/8/8/8/8/8/8/8';
 export const EMPTY_EPD = EMPTY_BOARD_FEN + ' w - -';
 export const EMPTY_FEN = EMPTY_EPD + ' 0 1';
+export const PAWN_VS_PAWN_INITIAL_BOARD_FEN = '8/pppppppp/8/8/8/8/PPPPPPPP/8';
+export const PAWN_VS_PAWN_INITIAL_EPD = PAWN_VS_PAWN_INITIAL_BOARD_FEN + ' w - -';
+export const PAWN_VS_PAWN_INITIAL_FEN = PAWN_VS_PAWN_INITIAL_EPD + ' 0 1';
 
 export enum InvalidFen {
   Fen = 'ERR_FEN',

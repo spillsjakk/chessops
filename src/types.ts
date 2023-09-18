@@ -74,6 +74,7 @@ export const isNormal = (v: Move): v is NormalMove => 'from' in v;
 export const RULES = [
   'chess',
   'antichess',
+  'pawnvspawn',
   'kingofthehill',
   '3check',
   'atomic',

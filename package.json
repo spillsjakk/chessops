@@ -1,6 +1,6 @@
 {
   "name": "chessops",
-  "version": "0.12.7",
+  "version": "0.12.8",
   "description": "Chess and chess variant rules and operations",
   "keywords": [
     "chess",
@@ -34,6 +34,8 @@
   },
   "scripts": {
     "prepare": "tsc",
+    "build": "tsc",
+    "watch": "tsc --watch",
     "test": "node --experimental-vm-modules node_modules/jest/bin/jest.js",
     "doc": "typedoc src/types.ts src/attacks.ts src/util.ts src/squareSet.ts src/board.ts src/setup.ts src/chess.ts src/compat.ts src/debug.ts src/fen.ts src/san.ts src/transform.ts src/variant.ts src/pgn.ts",
     "lint": "eslint src/*.ts",

@@ -19,6 +19,7 @@ import {
   isImpossibleCheck,
   pseudoDests,
 } from './chess.js';
+import { PAWN_VS_PAWN_INITIAL_FEN } from './fen.js';
 
 export {
   Position,
@@ -340,6 +341,38 @@ export class Antichess extends Position {
       return { winner: this.turn };
     }
     return;
+  }
+}
+
+export class PawnVsPawn extends Position {
+  private constructor() {
+    super('pawnvspawn');
+  }
+
+  static startingFen(): string {
+    return PAWN_VS_PAWN_INITIAL_FEN;
+  }
+
+  static default(): PawnVsPawn {
+    const pos = new this();
+    pos.reset();
+    return pos;
+  }
+
+  static fromSetup(setup: Setup): Result<PawnVsPawn, PositionError> {
+    const pos = new this();
+    pos.setupUnchecked(setup);
+    return pos.validate().map(_ => pos);
+  }
+
+  clone(): PawnVsPawn {
+    return super.clone() as PawnVsPawn;
+  }
+
+  validate(): Result<undefined, PositionError> {
+    if (this.board.occupied.isEmpty()) return Result.err(new PositionError(IllegalSetup.Empty));
+
+    return Result.ok(undefined);
   }
 }
 
@@ -837,6 +870,8 @@ export const defaultPosition = (rules: Rules): Position => {
       return Chess.default();
     case 'antichess':
       return Antichess.default();
+    case 'pawnvspawn':
+      return PawnVsPawn.default();
     case 'atomic':
       return Atomic.default();
     case 'horde':
@@ -858,6 +893,8 @@ export const setupPosition = (rules: Rules, setup: Setup): Result<Position, Posi
       return Chess.fromSetup(setup);
     case 'antichess':
       return Antichess.fromSetup(setup);
+    case 'pawnvspawn':
+      return PawnVsPawn.fromSetup(setup);
     case 'atomic':
       return Atomic.fromSetup(setup);
     case 'horde':
@@ -877,6 +914,7 @@ export const isStandardMaterial = (pos: Position): boolean => {
   switch (pos.rules) {
     case 'chess':
     case 'antichess':
+    case 'pawnvspawn':
     case 'atomic':
     case 'kingofthehill':
     case '3check':

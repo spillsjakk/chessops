@@ -90,7 +90,7 @@ export const lichessRules = (
 
 export const lichessVariant = (
   rules: Rules
-): 'standard' | 'antichess' | 'kingOfTheHill' | 'threeCheck' | 'atomic' | 'horde' | 'racingKings' | 'crazyhouse' => {
+): 'standard' | 'antichess' | 'pawnvspawn' | 'kingOfTheHill' | 'threeCheck' | 'atomic' | 'horde' | 'racingKings' | 'crazyhouse' => {
   switch (rules) {
     case 'chess':
       return 'standard';
