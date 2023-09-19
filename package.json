@@ -1,6 +1,6 @@
 {
-  "name": "chessops",
-  "version": "0.12.8",
+  "name": "@spillsjakk/chessops",
+  "version": "0.12.9",
   "description": "Chess and chess variant rules and operations",
   "keywords": [
     "chess",
@@ -60,5 +60,12 @@
     "moduleNameMapper": {
       "^(.*)\\.js$": "$1"
     }
-  }
+  },
+  "publishConfig": {
+    "registry": "https://npm.pkg.github.com/spillsjakk"
+  },
+  "files": [
+    "dist",
+    "package.json"
+  ]
 }
